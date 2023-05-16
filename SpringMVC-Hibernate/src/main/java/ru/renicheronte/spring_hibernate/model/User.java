@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @Column(name = "id")
@@ -20,12 +20,12 @@ public class User {
     private String email;
 
     @Column(name = "balance")
-    private double balance;
+    private int balance;
 
     public User() {
     }
 
-    public User(String firstName, String secondName, String email, double balance) {
+    public User(String firstName, String secondName, String email, int balance) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.email = email;
@@ -64,11 +64,11 @@ public class User {
         this.email = email;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 

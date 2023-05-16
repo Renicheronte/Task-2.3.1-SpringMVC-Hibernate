@@ -21,7 +21,7 @@ import java.util.Properties;
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement(proxyTargetClass = true)
 @ComponentScan(value = "ru.renicheronte.spring_hibernate")
-public class SpringConfig {
+public class HibernateConfig {
 
     private Environment environment;
 
