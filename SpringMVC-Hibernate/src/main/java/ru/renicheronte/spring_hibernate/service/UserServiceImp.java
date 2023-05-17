@@ -2,13 +2,14 @@ package ru.renicheronte.spring_hibernate.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.renicheronte.spring_hibernate.dao.UserDao;
 import ru.renicheronte.spring_hibernate.model.User;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class UserServiceImp implements UserService {
     private UserDao userDao;
 
@@ -16,7 +17,8 @@ public class UserServiceImp implements UserService {
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
-    @Transactional
+
+    @Transactional(readOnly = true)
     @Override
     public List<User> getAllUser() {
         return userDao.getAllUser();
@@ -34,7 +36,7 @@ public class UserServiceImp implements UserService {
         userDao.removeUserById(id);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public User showUserById(int id) {
         return userDao.showUserById(id);
