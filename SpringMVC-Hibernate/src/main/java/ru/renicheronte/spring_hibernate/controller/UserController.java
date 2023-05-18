@@ -18,13 +18,13 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public String showUsersPage(Model model) {
+    public String showAllUsers(Model model) {
         model.addAttribute("users", userService.getAllUser());
         return "users";
     }
 
     @GetMapping("/users/{id}")
-    public String showCurrentUserPage(@PathVariable("id") int id, Model model) {
+    public String showUserPage(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", userService.showUserById(id));
         return "show_user";
     }
